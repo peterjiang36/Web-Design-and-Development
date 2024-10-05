@@ -3,5 +3,6 @@ body {
 }
 
 ul {
-    list-style-image: url("koala-icon.png")
+    list-style-image: url("koala-icon.png");
+    margin-left: 1.5em;
 }

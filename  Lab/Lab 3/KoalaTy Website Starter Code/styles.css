@@ -15,5 +15,6 @@ li {
 }
 
 div {
-    background-color: lightgray;
+    background-color: #ccffcc;
+    padding: 1em;
 }

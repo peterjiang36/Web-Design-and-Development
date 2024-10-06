@@ -14,7 +14,7 @@ li {
     padding: 0.1em;
 }
 
-div {
+.koalaFacts{
     background-color: #ccffcc;
     padding: 1em;
     border-style: groove;

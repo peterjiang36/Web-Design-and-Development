@@ -17,4 +17,5 @@ li {
 div {
     background-color: #ccffcc;
     padding: 1em;
+    border-style: groove;
 }

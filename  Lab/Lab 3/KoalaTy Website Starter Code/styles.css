@@ -1,5 +1,7 @@
 body {
     font-family: Helvetica;
+    margin: auto;
+    width: 40%;
 }
 
 ul {

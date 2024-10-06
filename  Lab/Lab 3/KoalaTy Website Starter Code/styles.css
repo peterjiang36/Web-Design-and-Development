@@ -18,4 +18,9 @@ li {
     background-color: #ccffcc;
     padding: 1em;
     border-style: groove;
+    margin-top: 1em;
+}
+
+.mainContent {
+    margin-top: 25%;
 }

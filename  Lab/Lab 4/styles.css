@@ -36,3 +36,9 @@ body {
 .nav-listli a:hover {
     background-color: #555;
 }
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+    }
+}

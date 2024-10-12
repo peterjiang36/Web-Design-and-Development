@@ -17,3 +17,10 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+}

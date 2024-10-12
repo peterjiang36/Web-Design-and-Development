@@ -24,3 +24,15 @@ body {
     display: flex;
     gap: 1rem;
 }
+
+.nav-list li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-listli a:hover {
+    background-color: #555;
+}

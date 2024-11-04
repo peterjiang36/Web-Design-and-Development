@@ -18,6 +18,13 @@ document.addEventListener("DOMContentLoaded", function() {
                     listItem.classList.remove("completed")
                 }
             });
+
+            listItem.appendChild(checkbox);
+            listItem.appendChild(document.createTextNode(taskValue));
+
+            taskList.appendChild(listItem);
+
+            taskInput.value = "";
         }
     })
 });

@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const taskList = document.getElementById("taskList");
 
     addTaskButton.addEventListener("click", function(){
-        
+        const taskValue = taskInput.ariaValueMax.trim();
+
+        if (taskValue.length) {
+            
+        }
     })
 });

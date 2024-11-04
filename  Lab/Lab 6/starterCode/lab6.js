@@ -8,7 +8,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const taskValue = taskInput.ariaValueMax.trim();
 
         if (taskValue.length) {
-            
+            const listItem = document.createElement("li");
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.addEventListener("change", function(){
+                if (checkbox.checked) {
+                    listItem.classList.add("completed");
+                } else {
+                    listItem.classList.remove("completed")
+                }
+            });
         }
     })
 });

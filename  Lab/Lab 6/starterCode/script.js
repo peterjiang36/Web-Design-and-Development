@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-    const taskInput = document.getElementById("taskinput");
+    const taskInput = document.getElementById("taskInput");
     const addTaskButton = document.getElementById("addTaskButton");
     const taskList = document.getElementById("taskList");
 
     addTaskButton.addEventListener("click", function(){
-        const taskValue = taskInput.ariaValueMax.trim();
+        const taskValue = taskInput.value.trim();
 
         if (taskValue.length) {
             const listItem = document.createElement("li");
@@ -26,5 +26,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
             taskInput.value = "";
         }
-    })
+    });
 });

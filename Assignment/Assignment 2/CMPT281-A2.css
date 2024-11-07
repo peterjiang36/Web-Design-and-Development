@@ -1,0 +1,29 @@
+.flex-container {
+    display: flex;
+}
+
+.flex-container > div {
+    flex: 0.2;
+    background-color:darkblue;
+    border: 3px solid blue;
+    margin: 1px;
+    padding: 20px;
+    font-size: 70px;
+    font-weight: 500;
+    text-align:center;
+    color:darkorange;
+}
+
+.countdown-container {
+    display: flex;
+}
+
+.countdown-container > div {
+    flex: 0.2;
+    background-color:cornflowerblue;
+    border: 3px solid darkblue;
+    margin: 1px;
+    padding: 20px;
+    font-size: 35px;
+    text-align: center;
+}

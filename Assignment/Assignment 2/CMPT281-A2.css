@@ -1,3 +1,22 @@
+h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif; /* set font family for the h1 text */
+    text-align: center; /* center-align the h1 text */
+    font-size: 50px; /* set a large font size for the h1 text */
+    background-color: red; /* set initial background color to red */
+    animation-name: changing-background-color; /* link to keyframe animation */
+    animation-iteration-count: infinite; /* loop animation infinitely */
+    animation-duration: 4s; /* set duration of each animation cycle to 4 seconds */
+}
+
+/* Define keyframe animation steps for changing the background color of h1 */
+@keyframes changing-background-color {
+    0%   {background-color: red;} /* start with red background */
+    25%  {background-color: yellow;} /* change to yellow at 25% */
+    50%  {background-color: red;} /* revert to red at 50% */
+    100% {background-color: yellow;} /* end with yellow at 100%, looping back to start */
+}
+
+
 .flex-container {
     display: flex; /* set the container of numbers to a flexbox */
 }
@@ -30,7 +49,7 @@
 
 .countdown {
     position: relative; /* set relative position to enable animation */
-    animation-name: example; /* reference keyframe animation */
+    animation-name: moving-changing-color; /* reference keyframe animation */
     animation-duration: 5s; /* set duration of each animation loop */
     animation-timing-function: linear; /* use a linear timing function */
     animation-delay: 1s; /* set a 1-second delay before starting animation */
@@ -39,7 +58,7 @@
 }
 
 /* Define keyframe animation steps for the countdown background */
-@keyframes example {
+@keyframes moving-changing-color {
     0%   {background-color: rgb(0, 255, 115); left: 0px; top: 10px;} /* green background, slightly down */
     25%  {background-color: yellow; left: 200px; top: 0px;} /* yellow background, move right */
     50%  {background-color: blue; left: 200px; top: 200px;} /* blue background, move down and right */

@@ -1,9 +1,9 @@
 .flex-container {
-    display: flex;
+    display: flex; /* set the container of numbers to a flexbox */
 }
 
 .flex-container > div {
-    flex: 0.2;
+    flex: 0.2; /* fix the flexbox size to 0.2 */
     background-color:darkblue;
     border: 3px solid blue;
     margin: 1px;
@@ -19,7 +19,7 @@
 }
 
 .countdown-container > div {
-    flex: 0.2;
+    flex: 0.2; /* match the flebox size to the flex-container as 0.2 */
     background-color:cornflowerblue;
     border: 3px solid darkblue;
     margin: 1px;
@@ -27,3 +27,20 @@
     font-size: 35px;
     text-align: center;
 }
+
+.countdown {
+    position: relative;
+    animation-name: example;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes example {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}

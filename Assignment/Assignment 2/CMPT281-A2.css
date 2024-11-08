@@ -1,7 +1,7 @@
 h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif; 
     text-align: center; /* center-align the h1 text */
-    font-size: 50px; /* set a large font size for the h1 text */
+    font-size: 43px; /* set a large font size for the h1 text */
     color:indigo;
     background-color: red; 
     animation-name: changing-background-color; /* link to keyframe animation */
@@ -25,6 +25,7 @@ h1 {
 .flex-container > div {
     flex: 0.2; /* fix the flexbox size to 0.2 to evenly distribute child elements */
     border: 3px solid blue; /* set a blue border around each child element */
+    background-color: blue;
     margin: 1px; 
     padding: 20px; 
     font-size: 70px; 
@@ -39,7 +40,8 @@ h1 {
 
 .countdown-container > div {
     flex: 0.2; /* match the flex size with flex-container children */
-    border: 3px solid darkblue; 
+    border: 3px solid darkblue;
+    background-color: darkblue; 
     margin: 1px; 
     padding: 20px; 
     font-size: 35px; 
@@ -62,8 +64,8 @@ h1 {
 @keyframes moving-changing-color {
     0%   {background-color: rgb(0, 255, 115); left: 0px; top: 10px;} 
     25%  {background-color: yellow; left: 200px; top: 0px;} 
-    50%  {background-color: blue; left: 200px; top: 200px;} 
-    75%  {background-color: green; left: 0px; top: 200px;} 
+    50%  {background-color: blue; left: 200px; top: 250px;} 
+    75%  {background-color: green; left: 0px; top: 250px;} 
     100% {background-color: lightsteelblue; left: 0px; top: 0px;} 
 }
 
@@ -85,10 +87,10 @@ p {
     font-size: 60px; 
     position: absolute; /* Positions the <p> tag relative to its nearest positioned ancestor */
     bottom: 0; 
-    left: 0; 
+    left: 100; 
     width: 100%; 
     text-align: center; 
-    padding: 10px; 
 }
+
 
 

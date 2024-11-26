@@ -1,0 +1,6 @@
+{
+    "items":[
+        {"name":"Sword", "price":"19.99"},
+        {"name":"Shield", "price":"25.98"}
+    ]
+}

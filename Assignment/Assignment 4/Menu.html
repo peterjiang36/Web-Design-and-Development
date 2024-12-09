@@ -7,6 +7,10 @@
 </head>
 
 <style>
+
+    @import url('https://fonts.googleapis.com/css2family=Pacifico&family=Roboto+Slab:wght@400;600&display=swap');
+
+    
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -24,18 +28,27 @@
         padding: 10px;
     }
     nav a {
-        text-decoration: none;
-        color: aliceblue;
-        padding: 10px;
-        font-size: large;
+        font-family: 'Roboto Slab', serif;
+        font-size: 20px;
         font-weight: 600;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color:beige; /* A lively color for the nav links */
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
     }
 
+    nav a:hover {
+        background-color:brown; /* Adds fun interactivity */
+        color: #FFF;
+    }   
+
     h1 {
-        color: #f8f8f8;
-        font-size: 50px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Pacifico', cursive;
+        font-size: 60px;
+        color:beige; /* A vibrant color for fun */
+        margin: 0;
+        padding: 10px 0;
     }
 
     h2 {
@@ -127,7 +140,7 @@
 </header>
 
 <main>
-    <h2>Our Menu</h2>
+    <h2>OUR MENU</h2>
     <p>Explore our wide selection of freshly baked goods and treats.</p>
     <section class="menu-section">
         <!-- Menu Item 1 -->

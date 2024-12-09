@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homestead Bakes</title>
+    <title>Order Now - Homestead Bakes</title>
     <style>
         @import url('https://fonts.googleapis.com/css2family=Pacifico&family=Roboto+Slab:wght@400;600&display=swap');
         /* General styling for body */
@@ -53,48 +53,11 @@
             padding: 10px 0;
         }
 
-        /* Carousel container styling */
-        .carousel-container {
-            position: relative;
-            max-width: 100%;
-            margin: 20px auto;
-            overflow: hidden;
-            margin-top: 0%;
-        }
-
-        /* Carousel images style */
-        .carousel-slide {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-slide img {
-            max-width: 100%;
-            height: 500px; /* Height for slideshow images */
-            object-fit: cover; /* Ensures image proportions are maintained */
-            flex: 0 0 100%; /* Each image takes 100% of container width */
-        }
-
-        /* Button styles for next and previous controls */
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            font-size: 24px;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 100;
-        }
-
-        .prev {
-            left: 10px; /* Position for the previous button */
-        }
-
-        .next {
-            right: 10px; /* Position for the next button */
+        h2 {
+            font-style: italic;
+            font-size: 45px;
+            margin-top: 20px;
+            text-align: center;
         }
 
         /* Footer text styles */
@@ -108,6 +71,110 @@
             padding: 20px;
         }
 
+        .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+        }
+        .items-summary, .order-summary {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .items-summary {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: box-shadow 0.3s;
+        }
+        .item:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+        }
+        .item-details {
+            flex: 1;
+            margin-left: 15px;
+        }
+        .item-details p {
+            margin: 5px 0;
+        }
+        .item-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .item-controls button {
+            background-color: #FF5722;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .item-controls input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .order-summary {
+            text-align: center;
+        }
+        .order-summary .summary {
+            margin-bottom: 20px;
+        }
+        .order-summary input {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .order-summary button {
+            width: 80%;
+            background-color: #FF5722;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .order-summary button:hover {
+            background-color: #E64A19;
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #FF5722;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 120px;
+        }
+        .back-button:hover {
+            background-color: #E64A19;
+        }
     </style>
 </head>
 
@@ -123,6 +190,65 @@
     </nav>
 </header>
 
+<main>
+    <h2>ORDER NOW</h2>
+    <section class="container">
+        <!-- Items Summary -->
+        <div class="items-summary">
+            <div class="item">
+                <img src="Asset/menu_signature_cakes.jpg" alt="Delicious Cake">
+                <div class="item-details">
+                    <p><strong>Delicious Cake</strong></p>
+                    <p>Price: $9.99</p>
+                </div>
+                <div class="item-controls">
+                    <button>-</button>
+                    <input type="number" value="1" min="1">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="Asset/menu_butter_croissants.jpg" alt="Homemade Pastry">
+                <div class="item-details">
+                    <p><strong>Homemade Pastry</strong></p>
+                    <p>Price: $9.99</p>
+                </div>
+                <div class="item-controls">
+                    <button>-</button>
+                    <input type="number" value="1" min="1">
+                    <button>+</button>
+                </div>
+            </div>
+            <div class="item">
+                <img src="Asset/menu_freshly_baked_bread.jpg" alt="Artisan Bread">
+                <div class="item-details">
+                    <p><strong>Artisan Bread</strong></p>
+                    <p>Price: $9.99</p>
+                </div>
+                <div class="item-controls">
+                    <button>-</button>
+                    <input type="number" value="1" min="1">
+                    <button>+</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div class="summary">
+                <p>Subtotal: <strong>$29.97</strong></p>
+                <p>Tax: <strong>$2.99</strong></p>
+                <p>Total: <strong>$32.96</strong></p>
+            </div>
+            <input type="text" placeholder="Enter Coupon Code">
+            <button>Credit Card</button>
+            <button>PayPal</button>
+            <button>Apple Pay</button>
+        </div>
+    </section>
+    <button class="back-button">Back</button>
+</main>
 
 <footer>
     <p>&copy; 2024 Bakery Store</p>

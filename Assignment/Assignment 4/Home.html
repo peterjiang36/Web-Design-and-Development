@@ -75,7 +75,7 @@
         }
 
         header {
-            background: url('Asset/mockup-4020150_960_720.jpg') no-repeat center center;
+            background: url('Asset/mockup-4020150_960_720.jpg') no-repeat center    center;
             background-size: cover;
             padding: 20px;
         }
@@ -86,34 +86,6 @@
 
         p {
             padding: 0 15px;
-        }
-
-
-        .order-now-button {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #ff5722;
-            color: white;
-            padding: 10px 20px;
-            font-size:25px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
-            z-index: 200;
-        }
-        .order-now-button:hover {
-            background-color: #e64a19;
-        }
-
-        .order-now-button:active {
-            transform: translateX(-50%) scale(0.98);
-            /* Scaling button to 0.98 to its original size */
-            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
-            /* Lowering the shadow */
         }
 
         .about-us-box {
@@ -136,9 +108,36 @@
 
         .about-us-box p {
             margin: 0;
-            font-size: 15px;
+            font-size: 16px;
             color: #333;
         }
+
+        .order-now-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            font-size:25px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+            z-index: 200;
+        }
+        .order-now-button:hover {
+            background-color: #e64a19;
+        }
+
+        .order-now-button:active {
+            transform: translateX(-50%) scale(0.98);
+            box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+        }
+
+
     </style>
 </head>
 <body>
@@ -156,9 +155,9 @@
 
 <div class="carousel-container">
     <div class="carousel-slide">
-        <img src="Asset/home_slideshow_1.jpg" alt="Delicious Cakes">
-        <img src="Asset/home_slideshow_2.jpg" alt="Fresh Bread">
-        <img src="Asset/home_slideshow_3.jpg" alt="Pastry Delights">
+        <img src="Asset/home_slideshow_3.jpg" alt="Delicious Cakes">
+        <img src="Asset/home_slideshow_1.jpg" alt="Fresh Bread">
+        <img src="Asset/home_slideshow_2.jpg" alt="Pastry Delights">
     </div>
 
     <div class="about-us-box">
@@ -175,7 +174,7 @@
 </footer>
 
 <script>
-    const carouselSlide = document.querySelector('.carousel-slide');
+     const carouselSlide = document.querySelector('.carousel-slide');
     const carouselImages = document.querySelectorAll('.carousel-slide img');
 
     let counter = 0;
@@ -184,19 +183,27 @@
     const next = document.querySelector('.next');
     const prev = document.querySelector('.prev');
 
-    next.addEventListener('click', () => {
-        if (counter >= carouselImages.length - 1) return;
+    function updateCarousel() {
         carouselSlide.style.transition = "transform 0.5s ease-in-out";
-        counter++;
         carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+    }
+
+    next.addEventListener('click', () => {
+        counter = (counter + 1) % carouselImages.length;
+        updateCarousel();
     });
 
     prev.addEventListener('click', () => {
-        if (counter <= 0) return;
-        carouselSlide.style.transition = "transform 0.5s ease-in-out";
-        counter--;
-        carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+        counter = (counter - 1 + carouselImages.length) % carouselImages.length;
+        updateCarousel();
     });
+
+    function autoSlide() {
+        counter = (counter + 1) % carouselImages.length;
+        updateCarousel();
+    }
+
+    setInterval(autoSlide, 4000); // Change slide every 4 seconds
 </script>
 
 </body>

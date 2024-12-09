@@ -204,6 +204,12 @@
     }
 
     setInterval(autoSlide, 4000); // Change slide every 4 seconds
+
+    // Recalculate size when the window is resized
+    window.addEventListener('resize', () => {
+        size = carouselImages[0].clientWidth;
+        updateCarousel();
+    });
 </script>
 
 </body>

@@ -69,7 +69,8 @@
     }
     .menu-section {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-rows: repeat(2, 1fr);
+        grid-auto-flow: column; /* Automatically flow items into columns */
         gap: 20px;
         margin-top: 20px;
     }
@@ -79,6 +80,11 @@
         overflow: hidden;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
+        text-align: center;
+        display: flex;
+        flex-direction: column; /* Arrange children vertically */
+        justify-content: space-between; /* Even spacing between content */
+        padding: 10px; /* Add padding for consistent spacing */
     }
     .menu-item:hover {
         transform: translateY(-5px);
@@ -89,18 +95,23 @@
         object-fit: cover;
     }
     .menu-item h3 {
-        margin: 10px 0;
+        margin: 10px 0 5px; /* Add margin for better spacing */
         font-size: 20px;
+        font-weight: bold;
+        text-align: center;
     }
     .menu-item p {
-        margin: 0 10px 10px;
+        margin: 5px 10px; /* Add consistent margins for alignment */
         color: #555;
+        text-align: center;
     }
+    
     .menu-item .price {
         font-size: 18px;
         font-weight: bold;
         color: #ff5722;
-        margin-bottom: 10px;
+        margin-top: 10px;
+        text-align: center;
     }
 </style>
 
@@ -121,7 +132,7 @@
     <section class="menu-section">
         <!-- Menu Item 1 -->
         <div class="menu-item">
-            <img src="Asset/menu-bread.jpg" alt="Freshly Baked Bread">
+            <img src="Asset/menu_freshly_baked_bread.jpg" alt="Freshly Baked Bread">
             <h3>Freshly Baked Bread</h3>
             <p>Made with premium ingredients for a perfect crust and soft interior.</p>
             <p class="price">$5.99</p>
@@ -129,7 +140,7 @@
 
         <!-- Menu Item 2 -->
         <div class="menu-item">
-            <img src="Asset/menu-cake.jpg" alt="Signature Cakes">
+            <img src="Asset/menu_signature_cakes.jpg" alt="Signature Cakes">
             <h3>Signature Cakes</h3>
             <p>Rich and velvety cakes, perfect for celebrations or a sweet treat
             </p>
@@ -138,7 +149,7 @@
 
         <!-- Menu Item 3 -->
         <div class="menu-item">
-            <img src="Asset/menu-croissant.jpg" alt="Butter Croissants">
+            <img src="Asset/menu_butter_croissants.jpg" alt="Butter Croissants">
             <h3>Butter Croissants</h3>
             <p>Flaky and buttery croissants baked fresh daily.</p>
             <p class="price">$2.99</p>
@@ -146,7 +157,7 @@
         <!-- Menu Item 4 -->
         
         <div class="menu-item">
-            <img src="Asset/menu-pastry.jpg" alt="Assorted Pastries">
+            <img src="Asset/menu_assorted_pastries.jpg" alt="Assorted Pastries">
             <h3>Assorted Pastries</h3>
             <p>A delightful selection of sweet and savory pastries.</p>
             <p class="price">$3.99</p>
@@ -154,7 +165,7 @@
 
         <!-- Menu Item 5 -->
         <div class="menu-item">
-            <img src="Asset/menu-cookie.jpg" alt="Homemade Cookies">
+            <img src="Asset/menu_homemade_cookies.jpg" alt="Homemade Cookies">
             <h3>Homemade Cookies</h3>
             <p>Soft, chewy, and loaded with chocolate chips or nuts.</p>
             <p class="price">$1.99</p>
@@ -162,7 +173,7 @@
 
         <!-- Menu Item 6 -->
         <div class="menu-item">
-            <img src="Asset/menu-muffin.jpg" alt="Assorted Muffins">
+            <img src="Asset/menu_assorted_muffins.jpg" alt="Assorted Muffins">
             <h3>Assorted Muffins</h3>
             <p>Freshly baked muffins in a variety of flavors, perfect for
             breakfast.</p>
@@ -171,7 +182,7 @@
 
         <!-- Menu Item 7 -->
         <div class="menu-item">
-            <img src="Asset/menu-bagel.jpg" alt="Fresh Bagels">
+            <img src="Asset/menu_frensh_bagels.jpg" alt="Fresh Bagels">
             <h3>Fresh Bagels</h3>
             <p>Chewy bagels with classic toppings like sesame or everything
             seasoning.</p>
@@ -180,7 +191,7 @@
 
         <!-- Menu Item 8 -->
         <div class="menu-item">
-            <img src="Asset/menu-donut.jpg" alt="Glazed Donuts">
+            <img src="Asset/menu_glazed_donuts.jpg" alt="Glazed Donuts">
             <h3>Glazed Donuts</h3>
             <p>Light and fluffy donuts coated in a sweet glaze.</p>
             <p class="price">$1.49</p>
@@ -188,7 +199,7 @@
 
          <!-- Menu Item 9 -->
          <div class="menu-item">
-            <img src="Asset/menu-pie.jpg" alt="Seasonal Pies">
+            <img src="Asset/menu_seasonal_pies.jpg" alt="Seasonal Pies">
             <h3>Seasonal Pies</h3>
             <p>Homemade pies with fresh seasonal fillings, perfect for any
             occasion.</p>
@@ -197,7 +208,7 @@
         
         <!-- Menu Item 10 -->
         <div class="menu-item">
-            <img src="Asset/menu-brownie.jpg" alt="Chocolate Brownies">
+            <img src="Asset/menu_chocolate_brownies.jpg" alt="Chocolate Brownies">
             <h3>Chocolate Brownies</h3>
             <p>Rich, fudgy brownies made with premium chocolate.</p>
             <p class="price">$3.49</p>

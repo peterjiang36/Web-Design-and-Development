@@ -100,21 +100,6 @@
         .contact-form button:hover {
             background-color: #555;
         }
-        footer {
-            background-color: #f8f8f8;
-            padding: 10px 20px;
-            text-align: center;
-        }
-        footer p {
-            margin: 5px 0;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 45px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-style: italic;
-        }
 
         .content {
             padding: 40px 20px;
@@ -146,7 +131,7 @@
         }
 
         .contact-details h3 {
-            color: #FF5722;
+            color: brown;
             margin-bottom: 10px;
         }
 
@@ -162,7 +147,7 @@
 
         .contact-form h3 {
             text-align: center;
-            color: #FF5722;
+            color: brown;
             margin-bottom: 20px;
         }
 
@@ -178,7 +163,7 @@
 
         .contact-form button {
             width: 100%;
-            background-color: #FF5722;
+            background-color: brown;
             color: white;
             padding: 15px;
             border: none;
@@ -194,38 +179,106 @@
         }
 
         footer {
-            background-color:saddlebrown;
-            color: #fff;
+            background-color: #333;
+            color: white;
             padding: 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content div {
+            flex: 1;
+            min-width: 200px;
             text-align: center;
         }
 
-        footer p {
-            margin: 5px 0;
+        .footer-content h3 {
+            color: #FF5722;
+            font-size: 20px;
         }
 
-        footer a {
-            color:lightskyblue;
+        .footer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-content ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer-content ul li a {
+            color: white;
             text-decoration: none;
+            font-size: 14px;
             transition: color 0.3s ease;
         }
 
-        footer a:hover {
+        .footer-content ul li a:hover {
+            color: #FF5722;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        .footer-content a {
+            color: #FF5722;
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
             color: white;
         }
 
-        h2 {
-            text-align: center;
-            font-size: 40px;
-            font-weight: 700;
-            color: #FF5722;
-            margin-bottom: 20px;
+        .social-media .icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
         }
 
+        .social-media a img {
+            width: 24px;
+            height: 24px;
+            filter: invert(1); /* White icons */
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .social-media a:hover img {
+            transform: scale(1.1);
+            filter: invert(0.5) sepia(1) saturate(10) hue-rotate(15deg); /* Orange hover effect */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 10px;
+            padding-top: 10px;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        h2 {
+            font-style: italic;
+            font-size: 45px;
+            margin-top: -20px;
+            text-align: center;
+            text-decoration: none;
+        }
     </style>
 </head>
-<body>
 
+<body>
 <header>
     <h1>Homestead Bakes</h1>
     <nav>
@@ -258,7 +311,8 @@
         </div>
         <div class="contact-form">
             <h3>Questions?</h3>
-            <form>
+            <form action="https://api.web3forms.com/submit" method="post">
+                <input type="hidden" name="access_key" value="f5ff9f52-e655-4d6e-b437-a6676921a5af">
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="text" name="subject" placeholder="Subject" required>
@@ -270,9 +324,57 @@
 </main>
 
 <footer>
-    <p>&copy; 2024 Bakery Store</p>
-    <p>Follow us on <a href="#">Social Media</a></p>
+    <div class="footer-content">
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About Us.html">About</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Order.html">Order</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p>123 Bakery Lane, Saskatoon, SK</p><br>
+            <p>Phone: (123) 456-7890</p><br>
+            <p>Email: <a href="mailto:info@bakery.com">info@bakery.com</a></p>
+        </div>
+        <div class="social-media">
+            <h3>Follow Us</h3>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" title="Facebook"></a><br><br>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" title="Instagram"></a><br><br>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" title="Twitter"></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Homestead Bakes. All Rights Reserved.</p>
+    </div>
 </footer>
+
+
+<script>
+    function sendContactForm() {
+        // Get form inputs
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        // Validate inputs
+        if (!name || !email || !subject || !message) {
+            alert("Please fill in all fields before submitting.");
+            return;
+        }
+
+        // Simulate sending the form
+        alert(`Thank you, ${name}! Your message has been sent.\n\nSubject: ${subject}\nMessage: ${message}\nWe will respond to ${email} shortly.`);
+
+        // Clear the form
+        document.getElementById('contactForm').reset();
+    }
+</script>
 
 </body>
 </html>

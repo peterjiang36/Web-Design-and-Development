@@ -67,24 +67,93 @@
         }
 
         footer {
-            background-color:saddlebrown;
-            color: #fff;
+            background-color: #333;
+            color: white;
             padding: 20px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content div {
+            flex: 1;
+            min-width: 200px;
             text-align: center;
         }
 
-        footer p {
-            margin: 5px 0;
+        .footer-content h3 {
+            color: #FF5722;
+            font-size: 20px;
         }
 
-        footer a {
-            color:lightskyblue;
+        .footer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-content ul li {
+            margin-bottom: 5px;
+        }
+
+        .footer-content ul li a {
+            color: white;
             text-decoration: none;
+            font-size: 14px;
             transition: color 0.3s ease;
         }
 
-        footer a:hover {
+        .footer-content ul li a:hover {
+            color: #FF5722;
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        .footer-content a {
+            color: #FF5722;
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
             color: white;
+        }
+
+        .social-media .icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-media a img {
+            width: 24px;
+            height: 24px;
+            filter: invert(1); /* White icons */
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .social-media a:hover img {
+            transform: scale(1.1);
+            filter: invert(0.5) sepia(1) saturate(10) hue-rotate(15deg); /* Orange hover effect */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 10px;
+            padding-top: 10px;
+            font-size: 14px;
+            color: #bbb;
         }
 
         header {

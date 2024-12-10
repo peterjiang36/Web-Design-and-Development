@@ -82,7 +82,7 @@
             min-width: 200px;
             text-align: center;
         }
-        
+
         .footer-content h3 {
             color: #FF5722;
             font-size: 20px;
@@ -272,6 +272,64 @@
             margin-bottom: 10px;
             transition: background-color 0.3s;  
         }
+
+        /* Stylish buttons for Clear Order and Back to Menu */
+        .stylish-button {
+            display: inline-block;
+            background-color: brown;
+            color: white;
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
+
+        .stylish-button:hover {
+            background-color: #E64A19;
+            transform: translateY(-2px);
+            border-color: white; /* Adds a border effect on hover */
+        }
+
+        .stylish-button:active {
+            transform: translateY(1px); /* Subtle effect when clicked */
+        }
+
+        .order-summary {
+            background-color: #fafafa; /* Soft background color */
+            border: 2px solid #ddd; /* Border for structure */
+            border-radius: 10px; /* Rounded corners */
+            padding: 20px; /* Inner spacing */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+            font-family: 'Roboto Slab', serif; /* Stylish font */
+            transition: transform 0.2s ease, box-shadow 0.3s ease; /* Interactive effects */
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+
+        .order-summary:hover {
+            transform: scale(1.02); /* Slight zoom effect on hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+        }
+
+        .order-summary h3 {
+            font-size: 24px; /* Larger title size */
+            font-weight: bold; /* Emphasized font weight */
+            margin-bottom: 20px; /* Space below the title */
+            color: brown; /* Matching theme color */
+        }
+
+        .order-summary .summary p {
+            font-size: 18px; /* Larger text size */
+            margin: 10px 0; /* Spacing between rows */
+            display: flex; /* Flexbox layout */
+            justify-content: space-between; /* Align text on both ends */
+            font-weight: bold; /* Bold text for emphasis */
+        }
     </style>
 </head>
 
@@ -295,7 +353,7 @@
             <div class="item">
                 <img src="Asset/menu_signature_cakes.jpg" alt="Delicious Cake">
                 <div class="item-details">
-                    <p><strong>Delicious Cake</strong></p>
+                    <p><strong>Signature Cake</strong></p>
                     <p>Price: $24.99</p>
                 </div>
                 <div class="item-controls">
@@ -359,6 +417,11 @@
                 </button>
             </div>
         </div>
+
+        <!-- Button Container -->
+        <div class="button-container">
+            <button class="stylish-button" onclick="clearOrder()">Clear Cart</button>
+            <a href="Menu.html" class="stylish-button">Back to Menu</a>
     </section>
 </main>
 
@@ -391,6 +454,118 @@
         <p>&copy; 2024 Homestead Bakes. All Rights Reserved.</p>
     </div>
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const orders = JSON.parse(localStorage.getItem('orders')) || [];
+        const itemsSummaryContainer = document.querySelector('.items-summary');
+
+        // Function to update the order summary
+        function updateOrderSummary() {
+            let subtotal = 0;
+
+            orders.forEach(order => {
+                const itemTotal = order.price * order.quantity;
+                subtotal += itemTotal;
+            });
+
+            const tax = subtotal * 0.11; // 11% tax
+            const total = subtotal + tax;
+
+            // Update the order summary section
+            document.querySelector('.order-summary .summary').innerHTML = `
+                <p>Subtotal: <strong>$${subtotal.toFixed(2)}</strong></p>
+                <p>Tax: <strong>$${tax.toFixed(2)}</strong></p>
+                <p>Total: <strong>$${total.toFixed(2)}</strong></p>
+            `;
+
+            // Save updated orders to localStorage
+            localStorage.setItem('orders', JSON.stringify(orders));
+        }
+
+        // Clear any existing items in the summary
+        itemsSummaryContainer.innerHTML = '';
+
+        // Populate the items
+        orders.forEach((order, index) => {
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('item');
+            itemDiv.innerHTML = `
+    <img src="${order.image}" alt="${order.name}" style="width: 80px; height: 80px; border-radius: 8px; margin-right: 15px;">
+    <div class="item-details">
+        <p><strong>${order.name}</strong></p>
+        <p>Price: $${order.price.toFixed(2)}</p>
+        <div class="item-controls">
+            <button class="decrease-quantity">-</button>
+            <input type="number" value="${order.quantity}" min="1" class="quantity-input">
+            <button class="increase-quantity">+</button>
+        </div>
+        <p>Total: <span class="item-total">$${(order.price * order.quantity).toFixed(2)}</span></p>
+    </div>
+    <button class="delete-item" style="background: none; border: none; cursor: pointer;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828774.png" alt="Delete Icon" style="width: 24px; height: 24px;">
+    </button>
+`;
+
+
+            // Add event listeners for quantity controls
+            const decreaseBtn = itemDiv.querySelector('.decrease-quantity');
+            const increaseBtn = itemDiv.querySelector('.increase-quantity');
+            const quantityInput = itemDiv.querySelector('.quantity-input');
+            const itemTotalElement = itemDiv.querySelector('.item-total');
+
+            // Decrease quantity
+            decreaseBtn.addEventListener('click', () => {
+                if (order.quantity > 1) {
+                    order.quantity -= 1;
+                    quantityInput.value = order.quantity;
+                    itemTotalElement.textContent = `$${(order.price * order.quantity).toFixed(2)}`;
+                    updateOrderSummary();
+                }
+            });
+
+            // Increase quantity
+            increaseBtn.addEventListener('click', () => {
+                order.quantity += 1;
+                quantityInput.value = order.quantity;
+                itemTotalElement.textContent = `$${(order.price * order.quantity).toFixed(2)}`;
+                updateOrderSummary();
+            });
+
+            // Manual input change
+            quantityInput.addEventListener('change', (e) => {
+                const newQuantity = parseInt(e.target.value, 10);
+                if (newQuantity >= 1) {
+                    order.quantity = newQuantity;
+                    itemTotalElement.textContent = `$${(order.price * order.quantity).toFixed(2)}`;
+                    updateOrderSummary();
+                } else {
+                    quantityInput.value = order.quantity; // Reset to original value if invalid
+                }
+            });
+
+            // Delete item
+            const deleteBtn = itemDiv.querySelector('.delete-item');
+            deleteBtn.addEventListener('click', () => {
+                // Remove the item from the orders array
+                orders.splice(index, 1);
+                updateOrderSummary();
+                itemsSummaryContainer.removeChild(itemDiv); // Remove the item's element from the DOM
+            });
+
+            itemsSummaryContainer.appendChild(itemDiv);
+        });
+
+        // Initial calculation
+        updateOrderSummary();
+    });
+
+    function clearOrder() {
+        localStorage.removeItem('orders'); // Clear the stored orders
+        location.reload(); // Reload the page to reflect changes
+    }
+</script>
+
 
 </body>
 </html>

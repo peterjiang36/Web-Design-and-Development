@@ -206,14 +206,38 @@
     }
     
     .menu-item .price {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: bold;
-        color: #ff5722;
+        color: brown;
         margin-top: 10px;
         text-align: center;
     }
-</style>
 
+    .order-now-btn {
+    display: inline-block;
+    text-align: center;
+    background-color: brown;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.order-now-btn:hover {
+    background-color: #E64A19;
+    transform: translateY(-2px); /* Adds a slight hover lift */
+}
+
+.order-now-btn:active {
+    transform: translateY(1px); /* Subtle effect when clicked */
+}
+
+</style>
+<body>
 <header>
     <h1>Homestead Bakes</h1>
     <nav>
@@ -235,6 +259,8 @@
             <h3>Freshly Baked Bread</h3>
             <p>Made with premium ingredients for a perfect crust and soft interior.</p>
             <p class="price">$5.99</p>
+            <a href="Order.html" class="order-now-btn" 
+            onclick="addToOrder('Freshly Baked Bread', 5.99, 'Asset/menu_freshly_baked_bread.jpg')">Order Now</a>
         </div>
 
         <!-- Menu Item 2 -->
@@ -244,6 +270,8 @@
             <p>Rich and velvety cakes, perfect for celebrations or a sweet treat
             </p>
             <p class="price">$24.99</p>
+            <a href="Order.html" class="order-now-btn"
+            onclick="addToOrder('Signature Cakes', 24.99, 'Asset/menu_signature_cakes.jpg')">Order Now</a>
         </div>
 
         <!-- Menu Item 3 -->
@@ -252,6 +280,8 @@
             <h3>Butter Croissants</h3>
             <p>Flaky and buttery croissants baked fresh daily.</p>
             <p class="price">$2.99</p>
+            <a href="Order.html" class="order-now-btn"
+            onclick="addToOrder('Butter Croissants', 2.99, 'Asset/menu_butter_croissants.jpg')">Order Now</a>
         </div>
         <!-- Menu Item 4 -->
         
@@ -260,6 +290,8 @@
             <h3>Assorted Pastries</h3>
             <p>A delightful selection of sweet and savory pastries.</p>
             <p class="price">$3.99</p>
+            <a href="Order.html" class="order-now-btn"
+            onclick="addToOrder('Assorted Pastries', 3.99, 'Asset/menu_assorted_pastries.jpg')">Order Now</a>
         </div>
 
         <!-- Menu Item 5 -->
@@ -268,6 +300,8 @@
             <h3>Homemade Cookies</h3>
             <p>Soft, chewy, and loaded with chocolate chips or nuts.</p>
             <p class="price">$1.99</p>
+            <a href="Order.html" class="order-now-btn"
+            onclick="addToOrder('Homemade Cookies', 1.99, 'Asset/menu_homemade_cookies.jpg')">Order Now</a>
         </div>
 
         <!-- Menu Item 6 -->
@@ -277,6 +311,8 @@
             <p>Freshly baked muffins in a variety of flavors, perfect for
             breakfast.</p>
             <p class="price">$2.49</p>
+            <a href="Order.html" class="order-now-btn"
+            onclick="addToOrder('Assorted Muffins', 2.49, 'Asset/menu_assorted_muffins.jpg')">Order Now</a>
         </div>
 
         <!-- Menu Item 7 -->
@@ -286,6 +322,8 @@
             <p>Chewy bagels with classic toppings like sesame or everything
             seasoning.</p>
             <p class="price">$1.99</p>
+            <a href="Order.html" class="order-now-btn"
+            onclick="addToOrder('Fresh Bagels', 1.99, 'Asset/menu_frensh_bagels.jpg')">Order Now</a>
         </div>
 
         <!-- Menu Item 8 -->
@@ -294,6 +332,8 @@
             <h3>Glazed Donuts</h3>
             <p>Light and fluffy donuts coated in a sweet glaze.</p>
             <p class="price">$1.49</p>
+            <a href="Order.html" class="order-now-btn"
+            onclick="addToOrder('Glazed Donuts', 1.49, 'Asset/menu_glazed_donuts.jpg')">Order Now</a>
         </div>
 
          <!-- Menu Item 9 -->
@@ -303,6 +343,8 @@
             <p>Homemade pies with fresh seasonal fillings, perfect for any
             occasion.</p>
             <p class="price">$15.99</p>
+            <a href="Order.html" class="order-now-btn"
+            onclick="addToOrder('Seasonal Pies', 15.99, 'Asset/menu_seasonal_pies.jpg')">Order Now</a>
         </div>
         
         <!-- Menu Item 10 -->
@@ -311,7 +353,10 @@
             <h3>Chocolate Brownies</h3>
             <p>Rich, fudgy brownies made with premium chocolate.</p>
             <p class="price">$3.49</p>
+            <a href="Order.html" class="order-now-btn"
+            onclick="addToOrder('Chocolate Brownies', 3.49, 'Asset/menu_chocolate_brownies.jpg')">Order Now</a>
         </div>
+        
     </section>
 </main>
 
@@ -345,4 +390,32 @@
     </div>
 </footer>
 
+<script>
+    function addToOrder(itemName, itemPrice, itemImage) {
+        // Get the current orders from localStorage or initialize as an empty array
+        let orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+        // Check if the item already exists in the order
+        const existingItem = orders.find(order => order.name === itemName);
+        if (existingItem) {
+            existingItem.quantity += 1; // Increment the quantity if it exists
+        } else {
+            // Add a new item to the order
+            orders.push({
+                name: itemName,
+                price: itemPrice,
+                image: itemImage,
+                quantity: 1
+            });
+        }
+
+        // Save the updated orders back to localStorage
+        localStorage.setItem('orders', JSON.stringify(orders));
+        alert(`${itemName} added to your order!`); // Confirmation message
+    }
+</script>
+
+
+
+</body>
 </html>
